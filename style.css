@@ -1,0 +1,274 @@
+*, *::after, *::before {
+box-sizing: border-box;
+margin: 0;
+padding: 0;
+}
+
+
+:root {
+    --main-bg-color: #3D0000;
+}
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    position: relative;
+}
+
+.first-panel {
+    position: absolute;
+    width: 55vw;
+    height: 100vh;
+    background-color: #97847e;
+    left: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+}
+
+.second-panel {
+    position: absolute;
+    right: 0;
+    width: 45vw;
+    height: 100vh;
+    background-color: var(--main-bg-color);
+    color: #eeeeee;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: 300;
+    flex-direction: column;
+}
+
+.search {
+    height: 10vh;
+    display: grid;
+    place-items: center;
+    place-content: end center;
+    grid-template-columns: 3.5fr 1fr;
+}
+
+.search-input {
+    padding: 0.6em;
+}
+
+.search-btn {
+    padding: 0.45em;
+    border: 2px #eeeeee solid;
+    background-color: var(--main-bg-color);
+    font-family: 'Roboto', sans-serif;
+    color: #eeeeee;
+    cursor: pointer;
+    transition: color 0.3s ease-in, background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: #eeeeee;
+    color: #3D0000;
+}
+
+.first-section {
+    width: 100%;
+    height: 30vh;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    line-height: 3em;
+    margin: 0;
+    gap: .5em;
+}
+
+.temp {
+    display: flex;
+}
+
+.deg {
+    padding-top: .4em;
+}
+
+.icon {
+    padding: 0;
+    margin-left: .5em;
+    width: 70px;
+    height: 70px;
+}
+
+.second-section {
+    width: 100%;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: repeat(2, 10em);
+    place-content: center;
+    place-items: center;
+}
+
+.grid_child  {
+    height: 10em;
+    width: 10em;
+    display: grid;
+    place-content: center;
+    place-items: center;
+    position: relative;
+    gap: .6em;
+}
+
+.wind::after {
+    content: "";
+    background-color: #eeeeee;
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+}
+
+.wind::before {
+    content: "";
+    background-color: #eeeeee;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+}
+
+.humidity::before {
+    content: "";
+    background-color: #eeeeee;
+    width: 100%;
+    height: 2px;
+    position: absolute;
+    bottom: 0;
+}
+
+.UV-js {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.feels-like::after {
+    content: "";
+    background-color: #eeeeee;
+    width: 2px;
+    height: 100%;
+    position: absolute;
+    right: 0;
+}
+
+@media only screen and (min-width: 1000px) {
+    
+    body {
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .second-panel {
+        width: 30vw;
+    }
+
+    .first-panel {
+        width: 70vw;
+    }
+    
+}
+
+@media only screen and (max-width: 750px) {
+
+    body {
+        height: 100vh;
+        width: 100vw;
+    }
+    
+    .search {
+        grid-template-columns: 1fr, 1fr;
+    }
+
+    .second-section {
+        grid-template-columns: repeat(2, 8em);
+
+    }
+
+    .grid_child {
+        width: 8em;
+        height: 8em;
+        font-size: 1em;
+    }
+
+    
+}
+
+@media only screen and (max-width: 600px) {
+
+    body {
+        font-size: .8em;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .search {
+        width: 30vw;
+        grid-template-columns: 1fr 1fr;
+        gap: 0.4em;
+    }
+
+    .search-input {
+        width: 8em;
+        padding: 0.4em;
+        gap: 0;
+    }
+
+    .search-btn {
+        width: 5em;
+        font-size: 0.8em;
+    }
+
+    .second-section {
+        grid-template-columns: 1fr;
+    }
+
+    .grid_child {
+        grid-template-columns: 1fr 1fr;
+        width: 100%;
+    }
+
+
+    .grid_child::after {
+        content: "";
+        background-color: #eeeeee;
+        width: 100%;
+        height: 2px;
+        position: absolute;
+        bottom: 0;
+    }    
+
+}
+
+@media only screen and (max-width: 500px) {
+
+    body {
+        font-size: .6em;
+        height: 100vh;
+        width: 100vw;
+    }
+
+    .second-section {
+        font-size: 1em;
+    }
+
+    .search-input {
+        padding: 0.1em;
+    }
+
+    .deg {
+        display: grid;
+        place-items: center;
+    }
+
+}
