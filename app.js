@@ -25,7 +25,7 @@ window.onload = function() {
         lat = position.coords.latitude  
         long = position.coords.longitude
 
-        let currentLocationApi = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=be992466e68e72bc7e3a4167f36821b0`
+        let currentLocationApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=be992466e68e72bc7e3a4167f36821b0`
     
 
         fetch(currentLocationApi)
@@ -67,7 +67,7 @@ window.onload = function() {
 
     function searchWeather() {
 
-        let searchApi = `http://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&units=metric&appid=be992466e68e72bc7e3a4167f36821b0`
+        let searchApi = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&units=metric&appid=be992466e68e72bc7e3a4167f36821b0`
             fetch(searchApi)
             .then(response => response.json())
             .then((data) => {
