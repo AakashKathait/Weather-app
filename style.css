@@ -201,6 +201,11 @@ body {
         font-size: 1em;
     }
 
+    .search-btn {
+        background-color: #eeeeee;
+        color: #3D0000;
+    }
+
     
 }
 
