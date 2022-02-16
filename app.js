@@ -93,7 +93,7 @@ window.onload = function() {
                 if (data) {
                     let long = data.coord.lon
                     let lat = data.coord.lat
-                    let currentLocationApi = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=be992466e68e72bc7e3a4167f36821b0`
+                    let currentLocationApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=be992466e68e72bc7e3a4167f36821b0`
 
                     async function wait() {
                         let call = await fetch(currentLocationApi)
