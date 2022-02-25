@@ -12,7 +12,6 @@ window.onload = function() {
     const searchInput = document.querySelector('#search')
     const searchButton = document.querySelector('.search-btn')
 
-
     let lat;
     let long;
 
@@ -25,8 +24,7 @@ window.onload = function() {
         lat = position.coords.latitude  
         long = position.coords.longitude
 
-        let currentLocationApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=be992466e68e72bc7e3a4167f36821b0`
-    
+        let currentLocationApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=be992466e68e72bc7e3a4167f36821b0`    
 
         fetch(currentLocationApi)
         .then(response => response.json())
