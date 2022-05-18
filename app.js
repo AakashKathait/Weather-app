@@ -120,6 +120,7 @@ window.onload = function() {
                                     let randomNum = Math.floor(Math.random() * 6)
                                     let image = data.results[randomNum].urls.raw
                                     bgImage.style.backgroundImage = `url(${image})`
+                                    searchInput.value=""
                                 })
                     }
                     wait()
