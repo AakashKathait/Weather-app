@@ -10,8 +10,8 @@ window.onload = function () {
   const uvClass = document.querySelector(".UV-js");
   const searchInput = document.querySelector("#search");
   const searchButton = document.querySelector(".search-btn");
-//   var unsplashKey = config.IMAGE_KEY;
-//   var weatherKey = config.WEATHER_KEY;
+  const unsplashKey = config.IMAGE_KEY;
+  const weatherKey = config.WEATHER_KEY;
 
   let lat;
   let long;
