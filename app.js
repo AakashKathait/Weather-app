@@ -11,6 +11,8 @@ window.onload = function() {
     const uvClass = document.querySelector('.UV-js')
     const searchInput = document.querySelector('#search')
     const searchButton = document.querySelector('.search-btn')
+    const unsplashKey = config.IMAGE_KEY;
+    const weatherKey = config.WEATHER_KEY;
 
     let lat;
     let long;
@@ -24,7 +26,7 @@ window.onload = function() {
         lat = position.coords.latitude  
         long = position.coords.longitude
 
-        let currentLocationApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=be992466e68e72bc7e3a4167f36821b0`    
+        let currentLocationApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${weatherKey}`    
 
         fetch(currentLocationApi)
         .then(response => response.json())
@@ -47,7 +49,7 @@ window.onload = function() {
 
             icon.src = `https://openweathermap.org/img/wn/${data.current.weather[0].icon}@2x.png`
             
-            let imageApi = `https://api.unsplash.com/search/photos?photos?page=1&query=${city}&orientation=portrait&count=5&client_id=ZgQWtdtZPzh-k2MhkvWViTmMbQfCCe7GvKXCwZ9SBfk`
+            let imageApi = `https://api.unsplash.com/search/photos?photos?page=1&query=${city}&orientation=portrait&count=5&client_id=${unsplashKey}`
             
             fetch(imageApi)
             .then(response => response.json())
@@ -65,7 +67,7 @@ window.onload = function() {
 
     function searchWeather() {
 
-        let searchApi = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&units=metric&appid=be992466e68e72bc7e3a4167f36821b0`
+        let searchApi = `https://api.openweathermap.org/data/2.5/weather?q=${searchInput.value}&units=metric&appid=${weatherKey}`
             fetch(searchApi)
             .then(response => response.json())
             .then((data) => {
@@ -79,7 +81,7 @@ window.onload = function() {
                     uvClass.innerHTML = `--`
                     icon.src = `./error-404.png`
 
-                    fetch(`https://api.unsplash.com/search/photos?photos?page=1&query=not found&orientation=portrait&client_id=ZgQWtdtZPzh-k2MhkvWViTmMbQfCCe7GvKXCwZ9SBfk`)
+                    fetch(`https://api.unsplash.com/search/photos?photos?page=1&query=not found&orientation=portrait&client_id=${unsplashKey}`)
                     .then(response => response.json())
                     .then((data) => {
                         console.log(data)
@@ -91,7 +93,7 @@ window.onload = function() {
                 if (data) {
                     let long = data.coord.lon
                     let lat = data.coord.lat
-                    let currentLocationApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=be992466e68e72bc7e3a4167f36821b0`
+                    let currentLocationApi = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&units=metric&appid=${weatherKey}`
 
                     async function wait() {
                         let call = await fetch(currentLocationApi)
@@ -113,7 +115,7 @@ window.onload = function() {
                                 icon.src = `https://openweathermap.org/img/wn/${getResponse.current.weather[0].icon}@2x.png`
                                 uvIndex(uvClass, uv)
 
-                                let imageApi = `https://api.unsplash.com/search/photos?photos?page=1&query=${searchInput.value}&orientation=portrait&count=5&client_id=ZgQWtdtZPzh-k2MhkvWViTmMbQfCCe7GvKXCwZ9SBfk`
+                                let imageApi = `https://api.unsplash.com/search/photos?photos?page=1&query=${searchInput.value}&orientation=portrait&count=5&client_id=${unsplashKey}`
                                 fetch(imageApi)
                                 .then(response => response.json())
                                 .then((data) => {
